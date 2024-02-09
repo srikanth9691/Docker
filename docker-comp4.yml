@@ -1,0 +1,26 @@
+---
+version: '3.8'
+services:
+  
+  mydb:
+    image: mysql
+    environment:
+      MYSQL-ROOT-PASSWORD: 1234
+    volumes:
+      - db:/var/lib/mysql    
+
+       
+  mywordpress:
+    image: wordpress
+    ports:
+      - 8080:80 
+    volumes:
+      - wordpress:/var/www/html
+
+volumes:
+  db:
+  wordpress:  
+        
+        
+...
+

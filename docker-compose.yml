@@ -1,0 +1,21 @@
+---
+version: '3.8'
+services:
+  
+  jenkins:
+    build: .
+    ports:
+      - 8888:8080
+
+  mytomee:
+    image: tomee
+    ports:
+      - 9999:8080    
+        
+        
+...
+ 
+# we dont have image jenkins2 we are trying to create image also from doc-comp
+# docker-compose so insted of giving image name we just give build: .
+# . is nothing but home dir in linux so this docker compose will take whatever dockerfile in home dir and create image out ofit and then create containers from this image  
+# just like we do with docker build -t jenkins2 . and docker run --name j1 -P jenkins2  all this steps wil be done by docker-compose only

@@ -1,0 +1,21 @@
+---
+version: '3.8'
+
+services:
+  myjenkins:
+    image: jenkins/jenkins
+    ports:
+      - 8090:8080 
+  qaserver:
+    image: tomee
+    ports:
+      - 9090:8080
+    links:
+      - myjenkins:jenkins
+  prodserver:
+    image: tomee
+    ports:
+      - 9010:8080
+    links:
+      - myjenkins:jenkins  
+...  
